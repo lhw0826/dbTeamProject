@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>home</title>
+
+</head>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <p><h1>외대생 여행메이트 찾기</h1></p>
+          </div>
+            {% if userId %}
+            <br>
+            <p>{{userId}}님 반갑습니다.</p>
+            {% endif %}
+
+
+        <div class="row mt-5">
+            <div class="col-12">
+
+                    {% if userId %}
+                        <nav aria-label="breadcrumb">
+                          <ol>
+                            <li><a href="condition">조건선택</a></li>
+                          </ol>
+                        </nav>
+
+
+                      </li>
+                    {% else %}
+                    <nav aria-label="breadcrumb">
+                      <ol>
+                    <li><a href="login">로그인</a></li>
+                  </ol>
+                  </nav>
+                    {% endif %}
+
+            </div>
+        </div>
+
+    </div>
+ <main role="main">
+    <!-- Main content block -->
+    {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

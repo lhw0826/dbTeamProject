@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>login</title>
+    </head>
+<body class="login_body">
+<div class="login_form">
+    <div class="login_header">
+        <img src="static/img/heartboo.png" id="heartboo1">
+            <h1>외대생 여행메이트 찾기</h1>
+        <img src="static/img/heartboo.png" id="heartboo2">
+        </div>
+            <div class="login_main">
+                <form method="POST" action="/login">
+                    {{form.csrf_token}}
+                    <img src="static/img/user.png" id="login_user">
+                    <div >
+                        {{form.userId.label("ID")}}
+                        {%if form.userId.errors%}
+                        {{form.userId.errors.0}}
+                        {%endif%}
+                        {{form.userId(class="login_box",placeholder="ID")}}
+                    </div>
+                    <img src="static/img/key.png" id="login_key">
+                    <div>
+                        {{form.userPw.label("비밀번호")}}
+                        {%if form.userPw.errors%}
+                        {{form.userPw.errors.0}}
+                        {%endif%}
+                        {{form.userPw( class="login_box",placeholder="비밀번호")}}
+                    </div>
+
+                    <button type="submit" class="login_btn" id="login_btn1">로그인</button>
+                </form>
+            </div>
+
+        <div class="login_signup">
+            <hr>
+            <p>계정이 없으신가요?</p>
+            <nav aria-label="breadcrumb">
+                <ol>
+                    <li class="login_btn" id="login_btn2"><a href="/register">회원가입</a></li>
+                </ol>
+              </nav>
+        </div>
+    </div>
+
+</body>
+</html>
