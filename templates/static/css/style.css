@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+*{
+    font-family: 'Gowun Dodum', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+/* index */
+.login_body {
+    width: 100%;
+    height: 100%;
+    background-color: #0C2C52;
+}
+.login_form {
+    width: 400px;
+    height: 500px;
+    background-color: #FFFFFF;
+    text-align: center;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.login_header{
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 50px;
+}
+.login_header img{
+    width: 50px;
+    height: 50px;
+}
+#heartboo1{
+    position: relative;
+    top: 0px;
+    left: -170px;
+}
+.login_header h1{
+    position: relative;
+    top: -50px;
+    left: 0px;
+}
+#heartboo2{
+    position: relative;
+    top: -100px;
+    left: 175px;
+}
+.login_main{
+    width: 100%;
+    height: 300px;
+    line-height: 20px;
+    position: absolute;
+    top: 90px;
+}
+.login_main img{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 65px;
+    left: -10px;
+}
+.login_box{
+    width: 230px;
+    height: 25px;
+    text-align: left;
+    font-size: 15px;
+    border: 1px solid #333333;
+    padding: 10px;
+    position: relative;
+    top: 50px;
+}
+.login_main p {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    top: 60px;
+}
+.login_btn{
+    width: 300px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 5px;
+    background-color: #F5F5DC;
+    border: none;
+    border-radius: 10px;
+}
+#login_btn1{
+    position: relative;
+    top: 70px;
+}
+.login_signup{
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    bottom: 10px;
+}
+.login_signup p{
+    position: relative;
+    top: 10px;
+}
+#login_btn2{
+    position: relative;
+    top: 20px;
+}
+/* condition */
+.cond_main{
+    width: 100%;
+    height: 400px;
+    text-align: center;
+    position: absolute;
+    top: 100px;
+}
+.cond_main h2{
+    position: relative;
+    top: 20px;
+}
+.cond_selbox{
+    width: 100%;
+    height: 60px;
+}
+.cond_selbox.box1{
+    position: relative;
+    top: 40px;
+}
+.cond_selbox.box2{
+    position: relative;
+    top: 40px;
+}
+.cond_selbox.box3{
+    position: relative;
+    top: 40px;
+}
+.cond_selbox.box4{
+    position: relative;
+    top: 40px;
+}
+.cond_selbox div{
+    width: 100px;
+    height: 20px;
+    font-size: 16px;
+    position: relative;
+    left: 20px;
+}
+.cond_selbox select{
+    width: 200px;
+    height: 40px;
+    padding: 5px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #333333;
+    position: relative;
+    top: -20px;
+    left: 40px;
+}
+#cond_selected{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+#cond_btn{
+    position: relative;
+    top: 40px;
+}
+
+
+
+
