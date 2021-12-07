@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="static/css/style.css">
+        <title>condition</title>
+    </head>
+    <body class="login_body">
+        <div class="login_form">
+            <div class="login_header">
+                <img src="static/img/heartboo.png" id="heartboo1">
+                <h1>외대생 여행메이트 찾기</h1>
+                <img src="static/img/heartboo.png" id="heartboo2">
+            </div>
+            <div class="cond_main">
+                <h2>여행조건을 선택해주세요</h2>
+                <div>
+                <form method="POST" action="/condition">
+                    {{form.hidden_tag()}}
+                <div class="cond_selbox box1" id="cond_selcountry">
+                    <label class="cond_selinfo">여행지</label>
+                    <div>
+                        {{form.travelDes}}
+
+                    </div>
+                </div>
+                <div class="cond_selbox box2" id="cond_selnum">
+                    <label class="cond_selinfo">인원수: </label>
+                    <div>
+                        {{form.travelNum}}
+
+                    </div>
+                </div>
+                <div class="cond_selbox box3" id="cond_sellang">
+                    <label class="cond_selinfo">특기언어: </label>
+                    <div>
+                        {{form.travelLang}}
+
+                    </div>
+                </div>
+                <button type="submit" value="submit" class="login_btn" id="cond_btn">
+                    확     인
+                </button>
+               </form>
+                </div>
+            </div>
+        </div>
+        
+        <script></script>
+      </body>
+</html>

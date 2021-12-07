@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TravelTeamMatch_회원가입</title>
+</head>
+<body>
+<div class="container">
+    <div class="row mt-5">
+        <h1>회원가입</h1>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <form method="POST" action="/register">
+                {{form.csrf_token}}
+                <div class="form-group">
+                    {{form.userId.label("ID")}}
+                    {{form.userId(class="form-control",placeholder="ID")}}
+                </div>
+                <div class="form-group">
+                    {{form.userPw.label("비밀번호")}}
+                    {{form.userPw(class="form-control",placeholder="비밀번호")}}
+                </div>
+                <div class="form-group">
+                    {{form.repassword.label("비밀번호 확인")}}
+                    {{form.repassword(class="form-control",placeholder="비밀번호 확인")}}
+                </div>
+                <div class="form-group">
+                    {{form.userMajor.label("소속학과")}}
+                    {{form.userMajor(class="form-control",placeholder="소속학과")}}
+                </div>
+                <div class="form-group">
+                    {{form.userLang.label("특기언어")}}
+                    {{form.userLang(class="form-control",placeholder="특기언어")}}
+                </div>
+                <button type="submit" class="btn btn-primary">가입하기</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
