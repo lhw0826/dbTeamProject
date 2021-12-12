@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    {% extends "base.html" %}
+    <head>      
+        {% block title %}만족여부{% endblock %}
+    </head>
+    <body>
+        {% block content %}
+        <form method="POST" action="/satisfy" class="satis_main">
+            <h2>여행 매칭에 만족하시나요?</h2>
+                {{form.hidden_tag()}}
+                <div class="cond_selbox box1">
+                    <label class="cond_selinfo">만족 여부: </label>
+                    <div class="cond_sel">{{form.input_sat}}</div>
+                </div>
+                <button type="buttom" class="login_btn" id="cond_btn">
+                    확     인
+                </button>
+            </form>
+            {% endblock %}
+    
+      </body>
+</html>

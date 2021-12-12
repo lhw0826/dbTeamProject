@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko">
+    {% extends "base.html" %}
+    <head>
+        {% block title %}매칭완료{% endblock %}
+    </head>
+    <body>
+        {% block content %}
+            <img src="{{ url_for('static', filename='img/callboo.png') }}" id="end_call">
+            <img src="{{ url_for('static', filename='img/kakao.png') }}" id="end_kk">
+            <div id="end_address">매칭완료!<br>{{team.teamAddress}}</div>
+        {% endblock %}
+
+    </body>
+</html>

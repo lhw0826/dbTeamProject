@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+    {% extends "base.html" %}
+    <head>
+        {% block title %}홈{% endblock %}
+    </head>
+    <body>
+        {% block content %}
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <script>
+                        alert("{{messages[-1]}}")
+                    </script>
+                {% endif %}
+            {% endwith %}
+            {% if userId %}
+                <h3>{{userId}}님 반갑습니다.</h3>
+                <a href="condition">
+                    <h4 onclick="clicknum1()">여기를 누르면 매칭 조건선택 페이지로 이동합니다.</h4>
+                </a>
+                <br>
+                <a href="showteam" onclick="clicknum2()">
+                    <h4 style="color: red;" onclick="clicknum()">여기를 누르면 {{userId}}님이 합류한 팀을 볼 수 있습니다.</h4>
+                </a>
+
+            {% else %}
+                <h3>로그인이 필요합니다.</h3>
+                <a href="login">
+                    <h4>여기를 누르면 로그인 페이지로 이동합니다.</h4>
+                </a>
+
+            {% endif %}
+            <script>
+                var clicktime = 0;
+                function clicknum1(){
+                    clicktime = 1;
+                    sessionStorage.setItem("clicktime", clicktime);
+                }
+                function clicknum2(){
+                    clicktime = 2;
+                    sessionStorage.setItem("clicktime", clicktime);
+                }
+            </script>
+    
+        {% endblock %}
+        
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% extends "base.html" %}
+        <head>
+            {% block title %}팀생성{% endblock %}
+        </head>
+    </head>
+    <body>
+        {% block content %}
+            <form method="POST" action="/teamcreate">
+                {{form.csrf_token}}
+                <div class="tc_header">
+                    <h2>팀 생성</h2>
+                    <div>다음 정보를 기입해주세요.</div>
+                </div>
+                <div class="ti_box userNum">
+                    {{form.userNum.label("1. 회원번호: ")}}
+                    {{form.userNum(class="ti_title")}}
+                </div>
+                <div class="ti_box teamName">
+                    {{form.teamName.label("2. 팀명: ")}}
+                    {{form.teamName(class="ti_title",placeholder="10글자 이내로 작성")}}
+                </div>
+                <div class="ti_box teamTo">
+                    {{form.teamTo.label("3. 여행지: ")}}
+                    {{form.teamTo(class="ti_title")}}
+                </div>
+                <div class="ti_box numGoal">
+                    {{form.teamNumGoal.label("4. 목표인원: ")}}
+                    {{form.teamNumGoal(class="ti_title")}}
+                </div>
+                <div class="ti_box address">
+                    {{form.teamAddress.label("5. 팀 카톡방 주소: ")}}
+                    {{form.teamAddress(class="ti_title",placeholder="오픈 카톡 주소 입력")}}
+                </div>
+                <div class="ti_box intro">
+                    {{form.teamIntro.label("6. 간단한 팀소개 멘트: ")}}
+                    {{form.teamIntro(class="ti_title",placeholder="안녕하세요~ 함께 미국으로 여행 갈 친구 찾습니다!")}}
+                </div>
+
+                <button type="submit" class="login_btn" id="btn3">
+                    팀 생성
+                </button>
+                
+
+            </form>
+        {% endblock %}
+    </body>
+</html>

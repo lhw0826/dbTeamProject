@@ -1,16 +1,17 @@
 from flask_sqlalchemy import SQLAlchemy
+
 db=SQLAlchemy()
 
 class UserData(db.Model):
     __tablename__ = 'userdata'
-    userNum = db.Column(db.Integer, primary_key = True, autoincrement=True)
+    userNum = db.Column(db.Integer, primary_key=True, autoincrement=True)
     userId = db.Column(db.String(32))
     userPw = db.Column(db.String(255))
     userMajor = db.Column(db.String(32))
     userLang = db.Column(db.String(32))
 
-    conditiondatas = db.relationship('ConditionData', backref='pick')
-    doneteamdatas = db.relationship('DoneTeamData', backref='team')
+    conditiondatas = db.relationship('ConditionData', backref='user')
+    doneteamdatas = db.relationship('DoneTeamData', backref='userid')
 
 class WaitTeamData(db.Model):
     __tablename__ = 'waitteamdata'
@@ -21,31 +22,28 @@ class WaitTeamData(db.Model):
     teamRecNum = db.Column(db.Integer)
     teamNumGoal = db.Column(db.Integer)
 
-    doneteamdatas= db.relationship('DoneTeamData', backref='doneteam')
+    doneteamdatas= db.relationship('DoneTeamData', backref='teamcode', lazy=True)
+    contactdatas = db.relationship('ContactData', backref='teamcode', uselist=False)
 
 class DoneTeamData(db.Model):
     __tablename__ = 'doneteamdata'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     teamCode = db.Column(db.Integer, db.ForeignKey('waitteamdata.teamCode'))
-    teamName = db.Column(db.String(32))
-    teamTo = db.Column(db.String(32))
-    teamNumGoal = db.Column(db.Integer)
     userNum = db.Column(db.Integer, db.ForeignKey('userdata.userNum'))
-    userLang = db.Column(db.String(32))
     userSat = db.Column(db.String(32))
 
-    contactdatas = db.relationship('ContactData', backref='contact', uselist=False)
+
 
 class ContactData(db.Model):
     __tablename__ = 'contactdata'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    teamCode = db.Column(db.Integer, db.ForeignKey('doneteamdata.teamCode'))
+    teamCode = db.Column(db.Integer, db.ForeignKey('waitteamdata.teamCode'))
     teamAddress = db.Column(db.String(128))
 
 class NeedLangData(db.Model):
     __tablename__ = 'needlangdata'
-    countryName = db.Column(db.String(32), primary_key = True)
-    countryCode = db.Column(db.Integer, autoincrement=True)
+    countryName = db.Column(db.String(32))
+    countryCode = db.Column(db.Integer, primary_key=True, autoincrement=True)
     countryLang = db.Column(db.String(32))
 
 

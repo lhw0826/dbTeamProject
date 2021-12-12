@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% extends "base.html" %}
+        <head>
+            {% block title %}매칭된 팀목록{% endblock %}
+        </head>
+    </head>
+    <body>
+        {% block content %}
+            <div class="container my-3" style="height: 400px; overflow: auto;">
+                {% if team_list %}
+                <table class="table">
+                    <thead>
+                        <tr class="thead-dark">
+                            <th style="width: 145px;">팀명</th>
+                            <th style="width: 160px;">여행지</th>
+                            <th style="width: 165px;">현재인원/목표인원</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for team in team_list %}
+                            {% if loop.index%2 == 1  %}
+                                <tr style="background-color: #F5F5DC;">
+                                    <td><a href="teaminfo/{{team.teamCode}}">{{ team.teamName }}</a></td>
+                                    <td>
+                                        {{ team.teamTo }}
+                                    </td>
+                                    <td>{{ team.teamRecNum }}/{{ team.teamNumGoal }}</td>
+                                    
+                                </tr>
+                            {% endif %}
+                            {% if loop.index%2 == 0  %}
+                                <tr style="background-color: #ECE6CC;">
+                                    <td><a href="teaminfo/{{team.teamCode}}">{{ team.teamName }}</a></td>
+                                    <td>
+                                        {{ team.teamTo }}
+                                    </td>
+                                    <td>{{ team.teamRecNum }}/{{ team.teamNumGoal }}</td>
+                                </tr>
+                            {% endif %}
+
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                {% else %}
+                    <div class="tl_teamnobox">
+                        <img src="{{ url_for('static', filename='img/cryboo.png') }}" style="width: 250px; height: 250px;">
+                        <p>합류한 팀이 없습니다.</p>
+                    </div>
+
+                {% endif %}
+            </div>
+
+        {% endblock %}
+
+    </body>
+</html>

@@ -1,50 +1,41 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>home</title>
-
-</head>
-</head>
-<body>
-    <div class="container">
-        <div class="row mt-5">
-            <p><h1>외대생 여행메이트 찾기</h1></p>
-          </div>
-            {% if userId %}
-            <br>
-            <p>{{userId}}님 반갑습니다.</p>
-            {% endif %}
-
-
-        <div class="row mt-5">
-            <div class="col-12">
-
-                    {% if userId %}
-                        <nav aria-label="breadcrumb">
-                          <ol>
-                            <li><a href="condition">조건선택</a></li>
-                          </ol>
-                        </nav>
-
-
-                      </li>
-                    {% else %}
-                    <nav aria-label="breadcrumb">
-                      <ol>
-                    <li><a href="login">로그인</a></li>
-                  </ol>
-                  </nav>
-                    {% endif %}
-
-            </div>
+  <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+      <title>{% block title %}{% endblock %}</title>
+      <style>       
+        .breadcrumb-item+.breadcrumb-item::before { content: ">"; }
+        .breadcrumb{ width: 100%; font-size: 13px; position: absolute; top: 12px;}
+      </style>
+  </head>
+  <body>
+      <div class="mainbox">
+        <div class="header"> 
+          <img src="{{ url_for('static', filename='img/heartboo.png') }}" id="heartboo1">
+          <h1>외대생 여행메이트 찾기</h1>
+          <img src="{{ url_for('static', filename='img/heartboo.png') }}" id="heartboo2">
         </div>
 
-    </div>
- <main role="main">
-    <!-- Main content block -->
-    {% block content %}{% endblock %}
-    </main>
-</body>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb" style="width: 100%; font-size: 13px; position: absolute; top: 12px;">
+            <li class="breadcrumb-item" ><a href="/">홈</a></li>
+            <li class="breadcrumb-item"><a href="/condition">매칭 조건선택</a></li>
+            <li class="breadcrumb-item"><a href="/teamlist">매칭된 팀목록</a></li>
+            <li class="breadcrumb-item"><a href="/teaminfo">팀정보</a></li>
+            <li class="breadcrumb-item"><a href="#">매칭완료</a></li>
+          </ol>
+        </nav>
+
+        <button type="button" onclick="location.href='/logout'" id="logout">로그아웃</button>
+
+        {% block content %}{% endblock %} 
+        
+      </div>
+
+    <script></script>
+
+  </body>
 </html>
